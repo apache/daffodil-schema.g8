@@ -24,7 +24,7 @@ This repository is a [Giter8] template for [Apache Daffodil] DFDL schemas.
 Install [SBT] and run the following command:
 
 ```
-sbt new apache/daffodil-schema.g8
+sbt new apache/daffodil-schema.g8 --directory namespaced
 ```
 
 This command prompts for various properties and creates a bare-bones directory

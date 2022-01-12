@@ -15,15 +15,28 @@
 
 lazy val root = (project in file("."))
   .enablePlugins(ScriptedPlugin)
+  .settings(commonSettings)
   .settings(
     name := "daffodil-schema.g8",
-    scalaVersion := "2.12.11",
-    crossScalaVersions := Seq("2.12.11"),
-    test in Test := {
-      val _ = (g8Test in Test).toTask("").value
-    },
     ratFailBinaries := true,
     ratExcludes := Seq(
       file(".git"),
     ),
   )
+  .aggregate(namespaced)
+
+lazy val namespaced = (project in file("namespaced"))
+  .settings(commonSettings)
+  .settings(templateSettings)
+
+lazy val commonSettings = Seq(
+  scalaVersion := "2.12.11",
+  crossScalaVersions := Seq("2.12.11"),
+)
+
+lazy val templateSettings = Seq(
+  test in Test := {
+    val _ = (g8Test in Test).toTask("").value
+  }
+)
+
