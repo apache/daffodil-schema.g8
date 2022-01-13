@@ -1,3 +1,4 @@
+$!
 // Licensed to the Apache Software Foundation (ASF) under one or more
 // contributor license agreements. See the NOTICE file distributed with
 // this work for additional information regarding copyright ownership.
@@ -12,35 +13,25 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+!$
+package $package$.$name;format="camel"$
 
-lazy val root = (project in file("."))
-  .enablePlugins(ScriptedPlugin)
-  .settings(commonSettings)
-  .settings(
-    name := "daffodil-schema.g8",
-    ratFailBinaries := true,
-    ratExcludes := Seq(
-      file(".git"),
-    ),
-  )
-  .aggregate(namespaced, simple)
+import org.junit.AfterClass
+import org.junit.Test
 
-lazy val namespaced = (project in file("namespaced"))
-  .settings(commonSettings)
-  .settings(templateSettings)
+import org.apache.daffodil.tdml.Runner
 
-lazy val simple = (project in file("simple"))
-  .settings(commonSettings)
-  .settings(templateSettings)
+object Test$name;format="Camel"$ {
+  lazy val runner = Runner("/", "Test$name;format="Camel"$.tdml")
 
-lazy val commonSettings = Seq(
-  scalaVersion := "2.12.11",
-  crossScalaVersions := Seq("2.12.11"),
-)
-
-lazy val templateSettings = Seq(
-  test in Test := {
-    val _ = (g8Test in Test).toTask("").value
+  @AfterClass def shutDown {
+    runner.reset
   }
-)
+}
 
+class Test$name;format="Camel"$ {
+
+  import Test$name;format="Camel"$._
+
+  @Test def test_$name;format="camel"$_01(): Unit = { runner.runOneTest("test_$name;format="camel"$_01") }
+}

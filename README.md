@@ -17,20 +17,40 @@ limitations under the License.
 
 # Apache Daffodil DFDL Schema Template
 
-This repository is a [Giter8] template for [Apache Daffodil] DFDL schemas.
+This repository contains the [Giter8] templates for [Apache Daffodil] DFDL
+schemas.
+
+## Templates
+
+<dl>
+    <dt>simple</dt>
+    <dd>
+        Flattened directory structure, no package directories, and mixed source
+        and resource files in single src/ and test/ directories. This is the
+        preferred layout.
+    </dd>
+    <dt>namespaced</dt>
+    <dd>
+        Deep directory structure, with package directories, and separate
+        directories for source and resource files. This should only be used
+        when namespacing is required to avoid file name ambiguities.
+    </dd>
+</dl>
 
 ## Usage
 
-Install [SBT] and run the following command:
+
+Install [SBT] and run the following command, replacing `<layout>` with one of
+the above template names.
 
 ```
-sbt new apache/daffodil-schema.g8 --directory namespaced
+sbt new apache/daffodil-schema.g8 --directory <layout>
 ```
 
-This command prompts for various properties and creates a bare-bones directory
-structure that follows the recommended [DFDL Schema Project Layout]. This
-includes git and sbt configuration files, a basic DFDL schema file, and [TDML]
-and test files.
+This command prompts for various properties and creates a directory structure
+that follows the recommended [DFDL Schema Project Layout]. This includes git
+and sbt configuration files, a basic DFDL schema file, and [TDML] and test
+files.
 
 ### Properties
 
@@ -61,9 +81,9 @@ check of template generation. To execute this check, run:
 sbt test
 ```
 
-This command generates a new project using the ``default.properties`` template
-values and then runs the [SBT Scripted] commands defined in ``src/test/g8/test``
-to validate correct generation.
+For each of the layouts, this command generates a new project using the
+``default.properties`` template values and then runs the [SBT Scripted]
+commands defined in ``src/test/g8/test`` to validate correct generation.
 
 ## License
 
