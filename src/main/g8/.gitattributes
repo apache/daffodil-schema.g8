@@ -14,4 +14,4 @@ $if(false)$
 # See the License for the specific language governing permissions and
 # limitations under the License.
 $endif$
-src/test/resources/**/data/** text=false
+$if(namespaced.truthy)$src/test/resources/**/$else$test/$endif$data/** text=false

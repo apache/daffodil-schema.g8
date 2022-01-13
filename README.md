@@ -45,6 +45,18 @@ The following properties are used to configure the generated DFDL schema project
     <dd>
         the package namespace, for example "com.example"
     </dd>
+    <dt>namespaced</dt>
+    <dd>
+        if 'no', uses a flattened directory structure with no package
+        directories and mixed source and resource files in src/ and test/
+        directories (default)
+    </dd>
+    <dd>
+        if 'yes', uses a deep directory structure with package directories and
+        separate directories for source and resource files. This should
+        only be used when namespacing is required to avoid file name
+        ambiguities.
+    </dd>
     <dt>daffodil_version</dt>
     <dd>
         the version of Apache Daffodil to add as a dependency, defaults to the

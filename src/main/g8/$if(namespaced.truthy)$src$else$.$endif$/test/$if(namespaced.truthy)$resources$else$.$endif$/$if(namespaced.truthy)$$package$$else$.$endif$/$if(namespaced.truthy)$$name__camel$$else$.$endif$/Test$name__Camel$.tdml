@@ -26,12 +26,12 @@ limitations under the License.
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   defaultRoundTrip="onePass">
 
-  <tdml:parserTestCase name="test_$name;format="camel"$_01" root="$name;format="Camel"$" model="$package;format="packaged"$/$name;format="camel"$/xsd/$name;format="camel"$.dfdl.xsd">
+  <tdml:parserTestCase name="test_$name;format="camel"$_01" root="$name;format="Camel"$" model="$if(namespaced.truthy)$$package;format="packaged"$/$name;format="camel"$/xsd/$endif$$name;format="camel"$.dfdl.xsd">
     <tdml:document>
-      <tdml:documentPart type="file">$package;format="packaged"$/$name;format="camel"$/data/test_01.$name;format="camel"$</tdml:documentPart>
+      <tdml:documentPart type="file">$if(namespaced.truthy)$$package;format="packaged"$/$name;format="camel"$/$endif$data/test_01.$name;format="camel"$</tdml:documentPart>
     </tdml:document>
     <tdml:infoset>
-      <tdml:dfdlInfoset type="file">$package;format="packaged"$/$name;format="camel"$/infosets/test_01.$name;format="camel"$.xml</tdml:dfdlInfoset>
+      <tdml:dfdlInfoset type="file">$if(namespaced.truthy)$$package;format="packaged"$/$name;format="camel"$/$endif$infosets/test_01.$name;format="camel"$.xml</tdml:dfdlInfoset>
     </tdml:infoset>
   </tdml:parserTestCase>
 
