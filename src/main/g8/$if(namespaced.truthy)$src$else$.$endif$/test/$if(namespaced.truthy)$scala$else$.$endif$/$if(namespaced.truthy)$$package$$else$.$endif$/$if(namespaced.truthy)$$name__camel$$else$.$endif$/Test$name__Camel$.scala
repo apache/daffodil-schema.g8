@@ -24,7 +24,7 @@ import org.apache.daffodil.tdml.Runner
 object Test$name;format="Camel"$ {
   lazy val runner = Runner("/$if(namespaced.truthy)$$package;format="packaged"$/$name;format="camel"$/$endif$", "Test$name;format="Camel"$.tdml")
 
-  @AfterClass def shutDown {
+  @AfterClass def shutDown: Unit = {
     runner.reset
   }
 }

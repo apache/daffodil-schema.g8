@@ -17,10 +17,10 @@ lazy val root = (project in file("."))
   .enablePlugins(ScriptedPlugin)
   .settings(
     name := "daffodil-schema.g8",
-    scalaVersion := "2.12.11",
-    crossScalaVersions := Seq("2.12.11"),
-    test in Test := {
-      val _ = (g8Test in Test).toTask("").value
+    scalaVersion := "2.12.15",
+    crossScalaVersions := Seq("2.12.15"),
+    Test / test := {
+      val _ = (Test / g8Test).toTask("").value
     },
     ratFailBinaries := true,
     ratExcludes := Seq(
