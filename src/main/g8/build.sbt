@@ -20,12 +20,13 @@ organization := "$package$"
 
 version := "0.1.0-SNAPSHOT"
 
-scalaVersion := "2.12.11"
+scalaVersion := "2.12.15"
 
 libraryDependencies ++= Seq(
+  "com.github.sbt" % "junit-interface" % "0.13.2" % "test",
+  "junit" % "junit" % "4.13.2" % "test",
   "org.apache.daffodil" %% "daffodil-tdml-processor" % "$daffodil_version$" % "test",
-  "com.novocode" % "junit-interface" % "0.11" % "test",
-  "junit" % "junit" % "4.12" % "test",
+  "org.apache.logging.log4j" % "log4j-core" % "2.17.1" % "test",
 )
 
 testOptions += Tests.Argument(TestFrameworks.JUnit, "-v")
