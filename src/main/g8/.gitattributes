@@ -14,4 +14,8 @@ $if(false)$
 # See the License for the specific language governing permissions and
 # limitations under the License.
 $endif$
-$if(namespaced.truthy)$src/test/resources/**/$else$test/$endif$data/** text=false
+$if(namespaced.truthy)$src/test/resources$else$test$endif$/** text=false
+$if(namespaced.truthy)$src/test/resources$else$test$endif$/**/*.tdml text=true
+$if(namespaced.truthy)$src/test/resources$else$test$endif$/**/*.xsd text=true
+$if(namespaced.truthy)$src/test/resources$else$test$endif$/**/*.xml text=true
+$if(namespaced.truthy)$src/test/scala$else$test$endif$/**/*.scala text=true
