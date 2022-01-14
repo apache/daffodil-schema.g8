@@ -28,10 +28,10 @@ limitations under the License.
 
   <tdml:parserTestCase name="test_$name;format="camel"$_01" root="$name;format="Camel"$" model="$if(namespaced.truthy)$$package;format="packaged"$/$name;format="camel"$/xsd/$endif$$name;format="camel"$.dfdl.xsd">
     <tdml:document>
-      <tdml:documentPart type="file">test_01.$name;format="camel"$</tdml:documentPart>
+      <tdml:documentPart type="file">test_01.$extension$</tdml:documentPart>
     </tdml:document>
     <tdml:infoset>
-      <tdml:dfdlInfoset type="file">test_01.$name;format="camel"$.xml</tdml:dfdlInfoset>
+      <tdml:dfdlInfoset type="file">test_01.$extension$.xml</tdml:dfdlInfoset>
     </tdml:infoset>
   </tdml:parserTestCase>
 

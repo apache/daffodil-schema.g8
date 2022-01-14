@@ -41,6 +41,10 @@ The following properties are used to configure the generated DFDL schema project
     <dd>
         the name of the file format, for example "jpeg" or "png"
     </dd>
+    <dt>extension</dt>
+    <dd>
+        extension used for test files, for example "dat", or "png"
+    </dd>
     <dt>package</dt>
     <dd>
         the package namespace, for example "com.example"
