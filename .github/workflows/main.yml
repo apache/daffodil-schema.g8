@@ -13,9 +13,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: Daffodil DFDL Schema Template CI
+name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches-ignore: [ 'dependabot/**' ]
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   test:
@@ -23,10 +27,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        java_version: [ 8, 11, 15 ]
-        scala_version: [ 2.12.11 ]
-        os: [ ubuntu-latest ]
+        distribution: [ temurin ]
+        java_version: [ 8, 11, 17 ]
+        scala_version: [ 2.12.15 ]
+        os: [ ubuntu-20.04 ]
     runs-on: ${{ matrix.os }}
+    env:
+      SBT: sbt -J-Xms1024m -J-Xmx5120m -J-XX:ReservedCodeCacheSize=512m -J-XX:MaxMetaspaceSize=1024m ++${{ matrix.scala_version }}
 
     steps:
 
@@ -35,11 +42,14 @@ jobs:
       ############################################################
 
       - name: Checkout Repository
-        uses: actions/checkout@v2.0.0
+        uses: actions/checkout@v2.4.0
+        with:
+          fetch-depth: 0
 
       - name: Install Java
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2.5.0
         with:
+          distribution: ${{ matrix.distribution }}
           java-version: ${{ matrix.java_version }}
 
       ############################################################
@@ -47,7 +57,7 @@ jobs:
       ############################################################
 
       - name: Run Rat Check
-        run: sbt ++${{ matrix.scala_version }} ratCheck
+        run: $SBT ratCheck
 
       - name: Run Tests
-        run: sbt ++${{ matrix.scala_version }} test
+        run: $SBT test
