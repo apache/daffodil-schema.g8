@@ -34,13 +34,13 @@ lazy val simple = (project in file("simple"))
   .settings(templateSettings)
 
 lazy val commonSettings = Seq(
-  scalaVersion := "2.12.11",
-  crossScalaVersions := Seq("2.12.11"),
+  scalaVersion := "2.12.15",
+  crossScalaVersions := Seq("2.12.15"),
 )
 
 lazy val templateSettings = Seq(
-  test in Test := {
-    val _ = (g8Test in Test).toTask("").value
+  Test / test := {
+    val _ = (Test / g8Test).toTask("").value
   }
 )
 

@@ -18,21 +18,24 @@ limitations under the License.
 -->
 !$
 
-<tdml:testSuite suiteName="$name;format="Camel"$" description="$name;format="Camel"$ tests"
+<testSuite
+  suiteName="$name;format="Camel"$"
+  description="$name;format="Camel"$ tests"
   xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/" 
   xmlns:fn="http://www.w3.org/2005/xpath-functions" 
-  xmlns:tdml="http://www.ibm.com/xmlns/dfdl/testData" 
+  xmlns:tdml="http://www.ibm.com/xmlns/dfdl/testData"
+  xmlns="http://www.ibm.com/xmlns/dfdl/testData"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   defaultRoundTrip="onePass">
 
-  <tdml:parserTestCase name="test_$name;format="camel"$_01" root="$name;format="Camel"$" model="$name;format="camel"$.dfdl.xsd">
-    <tdml:document>
-      <tdml:documentPart type="file">/data/test_01.$name;format="camel"$</tdml:documentPart>
-    </tdml:document>
-    <tdml:infoset>
-      <tdml:dfdlInfoset type="file">/xml/test_01.$name;format="camel"$.xml</tdml:dfdlInfoset>
-    </tdml:infoset>
-  </tdml:parserTestCase>
+  <parserTestCase name="test_$name;format="camel"$_01" root="$name;format="Camel"$" model="$name;format="camel"$.dfdl.xsd">
+    <document>
+      <documentPart type="file">/data/test_01.$name;format="camel"$</documentPart>
+    </document>
+    <infoset>
+      <dfdlInfoset type="file">/xml/test_01.$name;format="camel"$.xml</dfdlInfoset>
+    </infoset>
+  </parserTestCase>
 
-</tdml:testSuite>
+</testSuite>
