@@ -18,28 +18,29 @@ limitations under the License.
 -->
 !$
 
-<xs:schema
+<schema
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://www.w3.org/2001/XMLSchema"
   xmlns:fn="http://www.w3.org/2005/xpath-functions"
   xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/"
   xmlns:$name;format="camel"$="urn:$name;format="camel"$"
   targetNamespace="urn:$name;format="camel"$"
   elementFormDefault="unqualified">
 
-  <xs:include schemaLocation="org/apache/daffodil/xsd/DFDLGeneralFormat.dfdl.xsd" />
+  <include schemaLocation="org/apache/daffodil/xsd/DFDLGeneralFormat.dfdl.xsd" />
 
-  <xs:annotation>
-    <xs:appinfo source="http://www.ogf.org/dfdl/">
+  <annotation>
+    <appinfo source="http://www.ogf.org/dfdl/">
       <dfdl:format ref="$name;format="camel"$:GeneralFormat" />
-    </xs:appinfo>
-  </xs:annotation>
+    </appinfo>
+  </annotation>
 
-  <xs:element name="$name;format="Camel"$">
-    <xs:complexType>
-      <xs:sequence>
+  <element name="$name;format="Camel"$">
+    <complexType>
+      <sequence>
 
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+      </sequence>
+    </complexType>
+  </element>
 
-</xs:schema>
+</schema>
