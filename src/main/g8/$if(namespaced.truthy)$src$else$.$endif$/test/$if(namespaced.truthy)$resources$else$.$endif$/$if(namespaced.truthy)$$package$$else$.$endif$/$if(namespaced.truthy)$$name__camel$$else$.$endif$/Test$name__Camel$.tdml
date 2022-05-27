@@ -18,11 +18,13 @@ limitations under the License.
 -->
 !$
 
-<testSuite suiteName="$name;format="Camel"$" description="$name;format="Camel"$ tests"
-  xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/" 
-  xmlns:fn="http://www.w3.org/2005/xpath-functions"
-  xmlns:tdml="http://www.ibm.com/xmlns/dfdl/testData"
+<testSuite
+  suiteName="$name;format="Camel"$"
+  description="$name;format="Camel"$ tests"
   xmlns="http://www.ibm.com/xmlns/dfdl/testData"
+  xmlns:tdml="http://www.ibm.com/xmlns/dfdl/testData"
+  xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/"
+  xmlns:fn="http://www.w3.org/2005/xpath-functions"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   defaultRoundTrip="onePass">
