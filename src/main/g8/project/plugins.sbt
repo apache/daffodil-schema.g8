@@ -1,3 +1,4 @@
+$!
 // Licensed to the Apache Software Foundation (ASF) under one or more
 // contributor license agreements. See the NOTICE file distributed with
 // this work for additional information regarding copyright ownership.
@@ -12,18 +13,5 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
-lazy val root = (project in file("."))
-  .enablePlugins(ScriptedPlugin)
-  .settings(
-    name := "daffodil-schema.g8",
-    scalaVersion := "2.12.19",
-    crossScalaVersions := Seq("2.12.19"),
-    Test / test := {
-      val _ = (Test / g8Test).toTask("").value
-    },
-    ratFailBinaries := true,
-    ratExcludes := Seq(
-      file(".git"),
-    ),
-  )
+!$
+addSbtPlugin("org.apache.daffodil" % "sbt-daffodil" % "$daffodil_plugin_version$")
