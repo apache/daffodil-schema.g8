@@ -20,8 +20,6 @@ organization := "$package$"
 
 version := "0.1.0-SNAPSHOT"
 
-scalaVersion := "2.12.19"
-
 // for details about DaffodilPlugin settings, see https://github.com/apache/daffodil-sbt
 enablePlugins(DaffodilPlugin)
 

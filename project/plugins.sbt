@@ -13,6 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-addSbtPlugin("org.foundweekends.giter8" %% "sbt-giter8" % "0.13.1")
+addSbtPlugin("org.foundweekends.giter8" %% "sbt-giter8" % "0.16.2")
 
 addSbtPlugin("org.musigma" % "sbt-rat" % "0.7.0")
