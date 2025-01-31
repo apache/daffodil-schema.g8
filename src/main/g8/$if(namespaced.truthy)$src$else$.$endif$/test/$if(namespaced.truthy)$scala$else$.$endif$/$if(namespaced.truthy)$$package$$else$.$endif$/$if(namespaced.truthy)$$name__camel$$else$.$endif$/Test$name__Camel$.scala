@@ -16,22 +16,19 @@ $!
 !$
 package $package$.$name;format="camel"$
 
-import org.junit.AfterClass
+import org.apache.daffodil.junit.tdml.TdmlSuite
+import org.apache.daffodil.junit.tdml.TdmlTests
+
 import org.junit.Test
 
 import org.apache.daffodil.tdml.Runner
 
-object Test$name;format="Camel"$ {
-  lazy val runner = Runner("/$if(namespaced.truthy)$$package;format="packaged"$/$name;format="camel"$/$endif$", "Test$name;format="Camel"$.tdml")
-
-  @AfterClass def shutDown: Unit = {
-    runner.reset
-  }
+object Test$name;format="Camel"$ extends TdmlSuite {
+  val tdmlResource = "/$if(namespaced.truthy)$$package;format="packaged"$/$name;format="camel"$/$endif$Test$name;format="Camel"$.tdml"
 }
 
-class Test$name;format="Camel"$ {
+class Test$name;format="Camel"$ extends TdmlTests {
+  val tdmlSuite = Test$name;format="Camel"$
 
-  import Test$name;format="Camel"$._
-
-  @Test def test_$name;format="camel"$_01(): Unit = { runner.runOneTest("test_$name;format="camel"$_01") }
+  @Test def $name;format="camel"$_01 = test
 }

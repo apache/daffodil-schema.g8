@@ -14,4 +14,4 @@ $!
 // See the License for the specific language governing permissions and
 // limitations under the License.
 !$
-addSbtPlugin("org.apache.daffodil" % "sbt-daffodil" % "$daffodil_plugin_version$")
+addSbtPlugin("org.apache.daffodil" % "sbt-daffodil" % "1.+")
