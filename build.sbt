@@ -17,8 +17,8 @@ lazy val root = (project in file("."))
   .enablePlugins(ScriptedPlugin)
   .settings(
     name := "daffodil-schema.g8",
-    scalaVersion := "2.12.19",
-    crossScalaVersions := Seq("2.12.19"),
+    scalaVersion := "2.12.20",
+    crossScalaVersions := Seq("2.12.20"),
     Test / test := {
       val _ = (Test / g8Test).toTask("").value
     },
