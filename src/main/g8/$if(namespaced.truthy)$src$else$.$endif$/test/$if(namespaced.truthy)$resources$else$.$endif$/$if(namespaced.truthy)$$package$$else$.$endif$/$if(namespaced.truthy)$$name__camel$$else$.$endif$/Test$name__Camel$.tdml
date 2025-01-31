@@ -29,7 +29,7 @@ limitations under the License.
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   defaultRoundTrip="onePass">
 
-  <parserTestCase name="test_$name;format="camel"$_01" root="$name;format="Camel"$" model="$if(namespaced.truthy)$$package;format="packaged"$/$name;format="camel"$/xsd/$endif$$name;format="camel"$.dfdl.xsd">
+  <parserTestCase name="$name;format="camel"$_01" root="$name;format="Camel"$" model="$if(namespaced.truthy)$$package;format="packaged"$/$name;format="camel"$/xsd/$endif$$name;format="camel"$.dfdl.xsd">
     <document>
       <documentPart type="file">test_01.$extension$</documentPart>
     </document>
