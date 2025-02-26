@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+$!
+<!--
+Licensed to the Apache Software Foundation (ASF) under one or more
+contributor license agreements. See the NOTICE file distributed with
+this work for additional information regarding copyright ownership.
+The ASF licenses this file to You under the Apache License, Version 2.0
+(the "License"); you may not use this file except in compliance with
+the License. You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+!$
+
+<schema
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:fn="http://www.w3.org/2005/xpath-functions"
+  xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/"
+  xmlns:$name;format="camel"$="urn:$package$.$name;format="camel"$"
+  targetNamespace="urn:$package$.$name;format="camel"$"
+  elementFormDefault="unqualified">
+
+  <include schemaLocation="/org/apache/daffodil/xsd/DFDLGeneralFormat.dfdl.xsd" />
+
+  <!--
+  This file defines a base format for use by all the schema files of this format.
+
+  Most real DFDL schemas will expand past a single file just to make editing
+  easier and organize the parts of the schema. So it is easiest to start off
+  right away with a separate file for the base format.
+  -->
+  <annotation>
+    <appinfo source="http://www.ogf.org/dfdl/">
+      <dfdl:defineFormat name="$name;format="camel"$BaseFormat">
+        <!--
+        Place the basic DFDL properties shared by the format below.
+
+        This makes it easy to share them as your format grows into
+        multiple files of DFDL.
+
+        Note on syntax: DFDL properties placed inside a dfdl:format
+        element do not (and cannot have) a "dfdl:" prefix.
+
+        Some properties may be the same as in the GeneralFormat.
+        If they are important properties for the format it is
+        best to list them here anyway. The fallback to GeneralFormat is
+        really to avoid having to mention properties that aren't
+        relevant to the format, but which Daffodil requires anyway.
+        -->
+        <dfdl:format
+          ref="$name;format="camel"$:GeneralFormat"
+        />
+      </dfdl:defineFormat>
+    </appinfo>
+  </annotation>
+
+</schema>

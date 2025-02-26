@@ -28,9 +28,21 @@ sbt new apache/daffodil-schema.g8
 ```
 
 This command prompts for various properties and creates a bare-bones directory
-structure that follows the recommended [DFDL Schema Project Layout]. This
-includes git and sbt configuration files, a basic DFDL schema file, and [TDML]
+structure that follows the recommended [DFDL Schema Project Layout] and most recent
+best practices from the [DFDL Schema Style Guide]. This
+includes git and sbt configuration files, basic DFDL schema files, and [TDML]
 and test files.
+
+Once you have generated your schema directory, typing `sbt test` will work and 
+run a TDML test. Of course, the initial DFDL schema has no fields, the test data file is empty, and 
+the expected XML Infoset file is an empty element. But, it's working and you can
+keep it working as you fill in the details of the schema and add tests. 
+
+The schema project is set up to use the `daffodil-sbt` plugin for SBT as part of the
+SBT build and test. 
+This provides capabilities to compile your DFDL schema into binary form and package it for 
+distribution. 
+You can read more about `daffodil-sbt` here: [Apache daffodil-sbt Plugin]
 
 ### Properties
 
@@ -61,11 +73,6 @@ The following properties are used to configure the generated DFDL schema project
         only be used when namespacing is required to avoid file name
         ambiguities.
     </dd>
-    <dt>daffodil_version</dt>
-    <dd>
-        the version of Apache Daffodil to add as a dependency, defaults to the
-        latest release on maven central
-    </dd>
 </dl>
 
 ## Testing
@@ -87,8 +94,10 @@ Apache Daffodil DFDL Schema Template is licensed under the [Apache License, v2.0
 
 
 [Apache Daffodil]: https://daffodil.apache.org/
+[Apache daffodil-sbt Plugin]: https://github.com/apache/daffodil-sbt
 [Apache License, v2.0]: https://www.apache.org/licenses/LICENSE-2.0
 [DFDL Schema Project Layout]: https://daffodil.apache.org/dfdl-layout/
+[DFDL Schema Style Guide]: https://cwiki.apache.org/confluence/display/DAFFODIL/DFDL+Schema+Style+Guide
 [Giter8]: http://www.foundweekends.org/giter8/
 [SBT]: https://www.scala-sbt.org/
 [SBT Giter8]: http://www.foundweekends.org/giter8/testing.html#Using+the+Giter8Plugin

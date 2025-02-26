@@ -17,30 +17,44 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 !$
-
 <schema
   xmlns="http://www.w3.org/2001/XMLSchema"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:fn="http://www.w3.org/2005/xpath-functions"
   xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/"
-  xmlns:$name;format="camel"$="urn:$name;format="camel"$"
-  targetNamespace="urn:$name;format="camel"$"
+  xmlns:$name;format="camel"$="urn:$package$.$name;format="camel"$"
+  targetNamespace="urn:$package$.$name;format="camel"$"
   elementFormDefault="unqualified">
 
-  <include schemaLocation="org/apache/daffodil/xsd/DFDLGeneralFormat.dfdl.xsd" />
+  <!--
+   This file contains the definition of the $name;format="Camel"$ data format.
+   -->
+
+  <include schemaLocation="$name;format="camel"$BaseFormat.dfdl.xsd" />
 
   <annotation>
     <appinfo source="http://www.ogf.org/dfdl/">
-      <dfdl:format ref="$name;format="camel"$:GeneralFormat" />
+      <dfdl:format ref="$name;format="camel"$:$name;format="camel"$BaseFormat" />
     </appinfo>
   </annotation>
 
-  <element name="$name;format="Camel"$">
-    <complexType>
-      <sequence>
+  <complexType name="$name;format="camel"$Type">
+    <sequence>
 
-      </sequence>
-    </complexType>
-  </element>
+    </sequence>
+  </complexType>
+
+  <!--
+  Note that this file and other files of this schema should not
+  define global elements except for test purposes under the test
+  resources directory.
+
+  Rather only simple or complex types and
+  groups should be defined.
+
+  This helps keep the DFDL schema usable not only to create XML
+  from parsing, but usable to parse data to JSON and other
+  formats that do not have namespaces.
+  -->
 
 </schema>
