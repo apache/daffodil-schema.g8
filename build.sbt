@@ -14,7 +14,6 @@
 // limitations under the License.
 
 lazy val root = (project in file("."))
-  .enablePlugins(ScriptedPlugin)
   .settings(
     name := "daffodil-schema.g8",
     scalaVersion := "2.12.20",
