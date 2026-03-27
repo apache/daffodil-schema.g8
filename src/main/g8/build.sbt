@@ -14,17 +14,30 @@ $!
 // See the License for the specific language governing permissions and
 // limitations under the License.
 !$
-name := "dfdl-$name;format="norm"$"
+val root = (project in file("."))
+  .settings(
+    name := "dfdl-$name;format="norm"$",
+    organization := "$package$",
+    version := "0.1.0-SNAPSHOT",
 
-organization := "$package$"
+    // For details about settings specific to daffodilProject() see
+    //
+    //   https://github.com/apache/daffodil-sbt
+    //
+    // Some commonly used options are commented out below
 
-version := "0.1.0-SNAPSHOT"
+    $if(!namespaced.truthy)$daffodilFlatLayout := true,$endif$
 
-// if you need a specific version of Daffodil, you can uncomment and edit
-// this line to refer to a specific daffodil version.
-// daffodilVersion := "00.00.0"
+    // use a specific version of Daffodil instead of the plugin provided default
+    // daffodilVersion := "0.0.0",
 
-// for details about DaffodilPlugin settings, see https://github.com/apache/daffodil-sbt
-enablePlugins(DaffodilPlugin)
+    // define the schema root for building saved parsers with packageDaffodilBin
+    // daffodilPackageBinInfos := Seq(
+    //   DaffodilBinInfo("/$if(namespaced.truthy)$$package;format="packaged"$/$name;format="camel"$/xsd/$endif$$name;format="camel"$Root.dfdl.xsd")
+    // ),
 
-$if(!namespaced.truthy)$daffodilFlatLayout := true$endif$
+    // make saved parsers created with packageDaffodilBin available to TDML tests
+    // daffodilTdmlUsesPackageBin := true,
+  )
+  .daffodilProject()
+
